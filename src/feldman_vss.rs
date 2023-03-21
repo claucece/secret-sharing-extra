@@ -7,7 +7,7 @@ use std::convert::TryInto;
 
 use rand::{thread_rng, Rng};
 
-/// The `VerifiableSecretSharing` structure.
+/// The `VerifiableSecretSharingRistretto` structure.
 pub struct VerifiableSecretSharingRistretto {
     /// the threshold of shares.
     pub threshold: usize,
@@ -41,7 +41,6 @@ pub fn new_random() -> Scalar {
 
 impl VerifiableSecretSharingRistretto {
     /// Split the secret into shares and add commitments (of k size).
-    ///
     pub fn split(&self, secret: &Scalar) -> (Vec<(usize, Scalar)>, Vec<RistrettoPoint>) {
         assert!(self.threshold <= self.share_amount);
 
