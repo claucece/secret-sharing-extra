@@ -1,0 +1,25 @@
+[package]
+name = "secret-sharing-extra"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+std = ["curve25519-dalek/std", "ed25519-dalek/std"]
+
+[dependencies]
+rand = "0.6"
+num-bigint-dig = "0.4"
+num-bigint = {version = "0.2.6", features = ["rand"]}
+num-traits = "0.2.11"
+num-integer = {version = "0.1.42", features = ["std", "i128"]}
+secp256k1 = {version = "0.17.2", features = ["rand-std", "serde"]}
+curve25519-dalek = "3"
+
+[dev-dependencies]
+criterion = "0.4"
+secp256k1 = {version = "0.17.2", features = ["rand-std", "serde"]}
+ed25519-dalek = { version = "1", default-features = false }
+
+[[bench]]
+name = "benchmarks"
+harness = false
